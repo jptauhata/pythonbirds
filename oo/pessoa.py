@@ -8,6 +8,17 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+    #decorator:elementos que começam com @ e começam antes de funções e métodos
+    @staticmethod
+    def metodo_estatico():
+        return 42
+# este método funciona como uma função que independe do objeto
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
+
+#Neste caso, você vai querer ter acesso à classe que está executando o método
 if __name__ == '__main__':
     renzo = Pessoa(nome='Renzo')
     Luciano = Pessoa(renzo,nome ='Luciano')
@@ -35,4 +46,5 @@ if __name__ == '__main__':
     print(Pessoa.olhos)
     del Luciano.olhos
     print(Luciano.__dict__)
-
+    print(Pessoa.metodo_estatico(), Luciano.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(),Luciano.nome_e_atributos_de_classe())
